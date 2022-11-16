@@ -2,14 +2,12 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { GenericService } from 'src/generic/generic.service';
+import { Consulta } from './entities/consulta.entity';
 import { Repository } from 'typeorm';
-import { CodigosDna } from './entities/codigos_dna.entity';
 
 @Injectable()
-export class CodigosDnaService extends GenericService<CodigosDna> {
-  constructor(
-    @InjectRepository(CodigosDna) repository: Repository<CodigosDna>,
-  ) {
+export class ConsultasService extends GenericService<Consulta> {
+  constructor(@InjectRepository(Consulta) repository: Repository<Consulta>) {
     super(repository);
   }
 }

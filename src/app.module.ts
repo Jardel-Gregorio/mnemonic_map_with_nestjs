@@ -12,6 +12,8 @@ import { CodigosParceiro } from './codigos_parceiros/entities/codigos_parceiro.e
 import { ParceirosModule } from './parceiros/parceiros.module';
 import { ClientesModule } from './clientes/clientes.module';
 import { ExamesModule } from './exames/exames.module';
+import { ConsultasModule } from './consultas/consultas.module';
+import { CodigosModule } from './codigos/codigos.module';
 
 @Module({
   imports: [
@@ -33,6 +35,8 @@ import { ExamesModule } from './exames/exames.module';
     ParceirosModule,
     ClientesModule,
     ExamesModule,
+    ConsultasModule,
+    CodigosModule,
   ],
   controllers: [AppController],
   providers: [AppService, AuthModule],

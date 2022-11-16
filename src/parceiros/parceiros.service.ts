@@ -1,26 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { CreateParceiroDto } from './dto/create-parceiro.dto';
-import { UpdateParceiroDto } from './dto/update-parceiro.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { GenericService } from 'src/generic/generic.service';
+import { Repository } from 'typeorm';
 
+import { Parceiro } from './entities/parceiro.entity';
 @Injectable()
-export class ParceirosService {
-  create(createParceiroDto: CreateParceiroDto) {
-    return 'This action adds a new parceiro';
-  }
-
-  findAll() {
-    return `This action returns all parceiros`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} parceiro`;
-  }
-
-  update(id: number, updateParceiroDto: UpdateParceiroDto) {
-    return `This action updates a #${id} parceiro`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} parceiro`;
+export class ParceirosService extends GenericService<Parceiro> {
+  constructor(@InjectRepository(Parceiro) repository: Repository<Parceiro>) {
+    super(repository);
   }
 }

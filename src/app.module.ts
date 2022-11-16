@@ -9,6 +9,9 @@ import { CodigosDnaModule } from './codigos_dna/codigos_dna.module';
 import { CodigosDna } from './codigos_dna/entities/codigos_dna.entity';
 import { CodigosParceirosModule } from './codigos_parceiros/codigos_parceiros.module';
 import { CodigosParceiro } from './codigos_parceiros/entities/codigos_parceiro.entity';
+import { ParceirosModule } from './parceiros/parceiros.module';
+import { ClientesModule } from './clientes/clientes.module';
+import { ExamesModule } from './exames/exames.module';
 
 @Module({
   imports: [
@@ -27,6 +30,9 @@ import { CodigosParceiro } from './codigos_parceiros/entities/codigos_parceiro.e
     CodigosParceirosModule,
     AuthModule,
     UsuariosModule,
+    ParceirosModule,
+    ClientesModule,
+    ExamesModule,
   ],
   controllers: [AppController],
   providers: [AppService, AuthModule],

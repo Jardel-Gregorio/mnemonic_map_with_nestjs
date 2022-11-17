@@ -4,7 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
-import { UsuariosModule } from './usuarios/usuarios.module';
+import { UsersModule } from './users/users.module';
 import { CodigosDnaModule } from './codigos_dna/codigos_dna.module';
 import { CodigosDna } from './codigos_dna/entities/codigos_dna.entity';
 import { CodigosParceirosModule } from './codigos_parceiros/codigos_parceiros.module';
@@ -31,7 +31,7 @@ import { CodigosModule } from './codigos/codigos.module';
     CodigosDnaModule,
     CodigosParceirosModule,
     AuthModule,
-    UsuariosModule,
+    UsersModule,
     ParceirosModule,
     ClientesModule,
     ExamesModule,

@@ -5,8 +5,8 @@ import { Column, Entity } from 'typeorm';
 @Entity()
 export class Codigo extends AbstractEntity {
   @Column()
-  dataPedido: Date;
+  codigo: string;
 
   @Column()
-  descricao: string;
+  nome: string;
 }

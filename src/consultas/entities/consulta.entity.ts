@@ -5,8 +5,5 @@ import { Column, Entity } from 'typeorm';
 @Entity()
 export class Consulta extends AbstractEntity {
   @Column()
-  dataPedido: Date;
-
-  @Column()
-  descricao: string;
+  data: Date;
 }

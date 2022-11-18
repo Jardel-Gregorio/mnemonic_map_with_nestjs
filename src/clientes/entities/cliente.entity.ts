@@ -5,8 +5,11 @@ import { Column, Entity } from 'typeorm';
 @Entity()
 export class Cliente extends AbstractEntity {
   @Column()
-  dataPedido: Date;
+  nome: string;
 
   @Column()
-  descricao: string;
+  idade: number;
+
+  @Column()
+  telefone: string;
 }

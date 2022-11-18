@@ -5,15 +5,16 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
-import { CodigosDnaModule } from './codigos_dna/codigos_dna.module';
-import { CodigosDna } from './codigos_dna/entities/codigos_dna.entity';
 import { CodigosParceirosModule } from './codigos_parceiros/codigos_parceiros.module';
 import { CodigosParceiro } from './codigos_parceiros/entities/codigos_parceiro.entity';
 import { ParceirosModule } from './parceiros/parceiros.module';
 import { ClientesModule } from './clientes/clientes.module';
 import { ExamesModule } from './exames/exames.module';
-import { ConsultasModule } from './consultas/consultas.module';
 import { CodigosModule } from './codigos/codigos.module';
+import { Codigo } from './codigos/entities/codigo.entity';
+import { Exame } from './exames/entities/exame.entity';
+import { Cliente } from './clientes/entities/cliente.entity';
+import { Parceiro } from './parceiros/entities/parceiro.entity';
 
 @Module({
   imports: [
@@ -24,18 +25,16 @@ import { CodigosModule } from './codigos/codigos.module';
       password: 'dna123',
       host: 'localhost',
       port: 5432,
-      entities: [CodigosDna, CodigosParceiro],
+      entities: [Codigo, CodigosParceiro, Exame, Cliente, Parceiro],
       synchronize: true,
       logging: true,
     }),
-    CodigosDnaModule,
     CodigosParceirosModule,
     AuthModule,
     UsersModule,
     ParceirosModule,
     ClientesModule,
     ExamesModule,
-    ConsultasModule,
     CodigosModule,
   ],
   controllers: [AppController],

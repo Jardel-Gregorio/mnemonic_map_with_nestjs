@@ -1,6 +1,7 @@
+import { Cliente } from 'src/clientes/entities/cliente.entity';
 import { AbstractEntity } from 'src/generic/entities/abstract-entity';
 
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, ManyToMany } from 'typeorm';
 
 @Entity()
 export class Parceiro extends AbstractEntity {
@@ -15,4 +16,7 @@ export class Parceiro extends AbstractEntity {
 
   @Column()
   telefone: string;
+
+  @ManyToMany(() => Cliente, { eager: true })
+  clientes: Cliente[];
 }

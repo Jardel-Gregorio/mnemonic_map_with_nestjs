@@ -1,12 +1,43 @@
-import { Controller } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+} from '@nestjs/common';
 
-import { GenericController } from 'src/generic/generic.controller';
 import { ClientesService } from './clientes.service';
-import { Cliente } from './entities/cliente.entity';
+import { CreateClienteDto } from './dto/create-cliente.dto';
+import { UpdateClienteDto } from './dto/update-cliente.dto';
 
 @Controller('clientes')
-export class ClientesController extends GenericController<Cliente> {
-  constructor(clientesService: ClientesService) {
-    super(clientesService);
+export class ClientesController {
+  constructor(private readonly clientesService: ClientesService) {}
+
+  @Get()
+  findAll() {
+    return this.clientesService.findAll();
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: number) {
+    return this.clientesService.findOne(id);
+  }
+
+  @Post()
+  create(@Body() createClienteDto: CreateClienteDto) {
+    return this.clientesService.create(createClienteDto);
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: number, @Body() updateClienteDto: UpdateClienteDto) {
+    return this.clientesService.update(id, updateClienteDto);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: number) {
+    return this.clientesService.remove(id);
   }
 }

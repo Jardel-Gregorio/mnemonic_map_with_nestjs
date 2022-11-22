@@ -1,10 +1,21 @@
-import { AbstractEntity } from 'src/generic/entities/abstract-entity';
 import { Parceiro } from 'src/parceiros/entities/parceiro.entity';
 
-import { Column, Entity, JoinTable, ManyToMany } from 'typeorm';
+import {
+  CreateDateColumn,
+  Column,
+  DeleteDateColumn,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
-export class Cliente extends AbstractEntity {
+export class Cliente {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
   @Column()
   nome: string;
 
@@ -17,4 +28,13 @@ export class Cliente extends AbstractEntity {
   @ManyToMany(() => Parceiro, { eager: true })
   @JoinTable({ name: 'consulta' })
   parceiros: Parceiro[];
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+
+  @DeleteDateColumn()
+  deletedAt: Date;
 }

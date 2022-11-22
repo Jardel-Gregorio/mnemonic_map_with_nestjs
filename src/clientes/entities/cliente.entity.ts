@@ -1,3 +1,4 @@
+import { Endereco } from 'src/enderecos/entities/endereco.entity';
 import { Parceiro } from 'src/parceiros/entities/parceiro.entity';
 
 import {
@@ -7,6 +8,7 @@ import {
   Entity,
   JoinTable,
   ManyToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -25,9 +27,12 @@ export class Cliente {
   @Column()
   telefone: string;
 
-  @ManyToMany(() => Parceiro, { eager: true })
+  @ManyToMany(() => Parceiro, (cliente) => Cliente)
   @JoinTable({ name: 'consulta' })
   parceiros: Parceiro[];
+
+  @OneToOne((type) => Endereco, (cliente) => Cliente)
+  endereco: Endereco;
 
   @CreateDateColumn()
   createdAt: Date;

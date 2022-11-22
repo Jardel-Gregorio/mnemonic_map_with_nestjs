@@ -20,7 +20,7 @@ export class Endereco extends AbstractEntity {
   @Column()
   estado: string;
 
-  @OneToOne(() => Cliente, { eager: true })
-  @JoinColumn({ name: 'cliente_id' })
+  @OneToOne((type) => Cliente, (endereco) => Endereco)
+  @JoinColumn()
   clientes: Cliente;
 }

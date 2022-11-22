@@ -17,6 +17,6 @@ export class Parceiro extends AbstractEntity {
   @Column()
   telefone: string;
 
-  @ManyToMany(() => Cliente, { eager: true })
+  @ManyToMany(() => Cliente, (parceiro) => Parceiro)
   clientes: Cliente[];
 }

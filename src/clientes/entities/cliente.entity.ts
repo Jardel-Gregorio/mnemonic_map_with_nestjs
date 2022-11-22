@@ -27,11 +27,11 @@ export class Cliente {
   @Column()
   telefone: string;
 
-  @ManyToMany(() => Parceiro, (cliente) => Cliente)
+  @ManyToMany(() => Parceiro, () => Cliente)
   @JoinTable({ name: 'consulta' })
   parceiros: Parceiro[];
 
-  @OneToOne((type) => Endereco, (cliente) => Cliente)
+  @OneToOne(() => Endereco, () => Cliente)
   endereco: Endereco;
 
   @CreateDateColumn()

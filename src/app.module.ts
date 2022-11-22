@@ -9,12 +9,12 @@ import { CodigosParceirosModule } from './codigos_parceiros/codigos_parceiros.mo
 import { CodigosParceiro } from './codigos_parceiros/entities/codigos_parceiro.entity';
 import { ParceirosModule } from './parceiros/parceiros.module';
 import { ClientesModule } from './clientes/clientes.module';
-import { ExamesModule } from './exames/exames.module';
 import { CodigosModule } from './codigos/codigos.module';
 import { Codigo } from './codigos/entities/codigo.entity';
-import { Exame } from './exames/entities/exame.entity';
 import { Cliente } from './clientes/entities/cliente.entity';
 import { Parceiro } from './parceiros/entities/parceiro.entity';
+import { EnderecosModule } from './enderecos/enderecos.module';
+import { Endereco } from './enderecos/entities/endereco.entity';
 
 @Module({
   imports: [
@@ -25,7 +25,7 @@ import { Parceiro } from './parceiros/entities/parceiro.entity';
       password: 'dna123',
       host: 'localhost',
       port: 5432,
-      entities: [Codigo, CodigosParceiro, Exame, Cliente, Parceiro],
+      entities: [Codigo, CodigosParceiro, Cliente, Parceiro, Endereco],
       synchronize: true,
       logging: true,
     }),
@@ -34,8 +34,8 @@ import { Parceiro } from './parceiros/entities/parceiro.entity';
     UsersModule,
     ParceirosModule,
     ClientesModule,
-    ExamesModule,
     CodigosModule,
+    EnderecosModule,
   ],
   controllers: [AppController],
   providers: [AppService, AuthModule],
